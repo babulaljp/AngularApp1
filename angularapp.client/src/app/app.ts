@@ -17,19 +17,19 @@ interface WeatherForecast {
 export class App implements OnInit {
   public forecasts: WeatherForecast[] = [];
 
-  constructor(private https: HttpClient) {}
+  constructor(private https: HttpClient) { }
 
   ngOnInit() {
     this.getForecasts();
   }
 
   getForecasts() {
-    this.https.get<WeatherForecast[]>('https://localhost:7213/weatherforecast').subscribe({
+    this.https.get<WeatherForecast[]>('/weatherforecast').subscribe({
       next: (result) => {
         this.forecasts = result;
       },
       error: (error) => {
-        console.error(error);
+        console.error('Failed to load forecasts:', error);
       }
     });
   }
