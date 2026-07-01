@@ -48,6 +48,6 @@ export class App implements OnInit {
       }
     });
   }
-
+  // babulal
   protected readonly title = signal('angularapp.client');
 }
